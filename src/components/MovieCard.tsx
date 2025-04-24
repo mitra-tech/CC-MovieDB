@@ -1,13 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
-  vote_average: number;
-}
+import { Movie } from "@/types";
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
   return (

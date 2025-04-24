@@ -25,8 +25,7 @@ Worth mentioning: a MongoDB database is used to handle user watchlists, allowing
 - Docker
 - **Database:** MongoDB
 - **Testing:** Playwright
-- **API:** MovieDB API (or IMDb API)
-
+- **API:** MovieDB API
 ---
 
 ## 🚀 How to Run the App

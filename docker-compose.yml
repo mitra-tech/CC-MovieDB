@@ -1,0 +1,34 @@
+services:
+  dev-db:
+    image: mongo:6.0
+    container_name: "dev-db"
+    ports:
+      - 27017:27017 # Default MongoDB port
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpass
+      MONGO_INITDB_DATABASE: mongodb # Initial database to create
+    # volumes:
+    #   - mongodb_data:/data/db  # Persistent volume for data
+    # networks:
+    #   - freecodecamp
+
+  mongo-express:
+    image: mongo-express
+    container_name: "mongo-express"
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:rootpass@dev-db:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    depends_on:
+      - dev-db
+    # networks:
+    #   - freecodecamp
+# networks:
+#   freecodecamp:
+
+# volumes:
+#   mongodb_data:

@@ -1,0 +1,5 @@
+MONGODB_URI=mongodb://root:rootpass@localhost:27017
+MONGODB_DB=mongodb
+SESSION_SECRET="4lwJB/MtOYV04WgLKv4hzEjVru8mIiOmNe5EvUqS9YY="
+API_KEY=8e40d16d3ec0b58acbdbb2417d62598c
+NEXT_PUBLIC_SITE_URL=http://localhost:3000

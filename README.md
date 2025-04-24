@@ -51,6 +51,12 @@ Copy `.env-sample` to `.env` in the root directory.
 ### 5. Open the application in your browser at http://localhost:3000
 
 ### 6. 🧪 Running Tests with Playwright
+there are tests for authenticated and unauthenticated users. For authenticated users tests, a user credential has been hard coded in the tests which is not the best practice but reasong for doing this way was uncertainity about the deadline. The best practice is to create a global set up in the test directory and then creating a session for the tests that need authentication. With the current set up to pass all the test, a user with the following credentials needs to be registered before running the test:
+
+username: mitra@gmail.com
+password: 123456a@
+
+
 
 ▶️ To run all the tests:
 
@@ -65,7 +71,7 @@ Copy `.env-sample` to `.env` in the root directory.
 
 ▶️ To run all a specific test:
 
-<pre lang="markdown">npm run test <test_file_name> </pre>
+<pre lang="markdown">npm run test test_file_name </pre>
 
 ---
 

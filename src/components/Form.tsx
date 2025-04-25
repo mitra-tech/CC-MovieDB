@@ -53,7 +53,7 @@ const AuthForm = ({ formType }: { formType: string }) => {
         </button>
 
         <Link
-          href={formType === "register" ? "/register" : "/login"}
+          href={formType === "register" ? "/login" : "/register"}
           className="text-link text-slate-500 pl-2 pb-2"
         >
           or {formType === "register" ? "login" : "register"} here

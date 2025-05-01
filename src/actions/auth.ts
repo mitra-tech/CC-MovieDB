@@ -86,8 +86,14 @@ export async function login(state: ActionState, formData: FormData) {
   redirect("/dashboard");
 }
 
-export async function logout() {
+export async function regAuthLogout() {
   const cookieStore = await cookies();
   cookieStore.delete("session");
+  redirect("/");
+}
+
+export async function tmdbLogout() {
+  const cookieStore = await cookies();
+  cookieStore.delete("user-account-data");
   redirect("/");
 }

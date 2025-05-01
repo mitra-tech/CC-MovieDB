@@ -26,6 +26,7 @@ Worth mentioning: a MongoDB database is used to handle user watchlists, allowing
 - **Database:** MongoDB
 - **Testing:** Playwright
 - **API:** MovieDB API
+
 ---
 
 ## 🚀 How to Run the App
@@ -38,35 +39,30 @@ Copy `.env-sample` to `.env` in the root directory.
 
 <pre lang="markdown">npm install</pre>
 
-
-
 ### 3. Run Mongo as your local database
+
 <pre lang="markdown"> docker compose up </pre>
 
-
 ### 4. Run the development server:
+
 <pre lang="markdown">npm run dev </pre>
 
 ### 5. Open the application in your browser at http://localhost:3000
 
 ### 6. 🧪 Running Tests with Playwright
+
 there are tests for authenticated and unauthenticated users. For authenticated users tests, a user credential has been hard coded in the tests which is not the best practice but reasong for doing this way was uncertainity about the deadline. The best practice is to create a global set up in the test directory and then creating a session for the tests that need authentication. With the current set up to pass all the test, a user with the following credentials needs to be registered before running the test:
 
 username: mitra@gmail.com
 password: 123456a@
 
-
-
 ▶️ To run all the tests:
 
 <pre lang="markdown"> npm run test:e2e </pre>
 
-
-
 ▶️ To run all the tests by ui:
 
 <pre lang="markdown">npm run test:e2e:ui </pre>
-
 
 ▶️ To run all a specific test:
 
@@ -77,12 +73,25 @@ password: 123456a@
 ## 🧠 Thought Process & Assumptions
 
 🔐 1. Custom Authentication
-Instead of using third-party libraries like NextAuth, I implemented a custom authentication system using email and password. This allowed for:
+Two ways of authentication has been implemented a custom authentication system using email and password and an authentication via MovieDB API.
 
-Greater control over the user experience and flow
-Fine-tuned validation and error handling
-Flexibility to integrate future features like multi-factor authentication or role-based access
-Assumption: The authentication logic would remain relatively simple in scope, making a custom solution more maintainable and tailored than using a heavy external library.
+💬 Assumption: The authentication logic would remain relatively simple in scope, making a custom solution more maintainable and tailored than using a heavy external library.
+
+### 💬 How MovieDB API authentican works?
+
+This authentication allows user to create an account in the app via MovieDB API. Steps to create an Account:
+
+#### 1. Ceate Token
+
+#### 2. Approve Token
+
+#### 3. User will be redirected to a page to approve their permission
+
+#### 4. Create Session
+
+#### 5. Create Account
+
+#### 6. Successfully authenticated user will be redirected to app home page
 
 ⚙️ 2. Server-Side Rendering (SSR)
 I prioritized using Server-Side Rendering (SSR) wherever possible to:
@@ -101,4 +110,3 @@ Enforcing better security by limiting client-side exposure
 💾 4. A mongodb database has been used to handle a custom user watch list rather than using MovieDB Api, so users can have a permanent watch list while on the MovieDB user can have access to watch list only for one week.
 
 🧪 5. Tests have been added for both public routes (e.g. "/", "/register") and protected routes (e.g. "/dashboard", "/movies/[id]")
-

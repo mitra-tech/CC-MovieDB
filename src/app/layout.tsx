@@ -10,6 +10,8 @@ const poppins = Poppins({
   variable: "--font-poppins", // instead of className
 });
 
+export const dynamic = 'force-dynamic'
+
 export default function RootLayout({
   children,
 }: Readonly<{

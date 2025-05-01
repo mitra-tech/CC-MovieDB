@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import getAuthUser from "./lib/getAuthUser";
+import { getAuthMethod, getAuthUser, getTmdbAuthUser } from "./lib/getAuthUser";
 
 const protectedRoutes = ["/dashboard"];
 const publicRoutes = ["/", "/login", "/register"];
@@ -11,8 +11,16 @@ export default async function middleware(req: NextRequest) {
     // protectedRoutes.includes(path);
   const isPublic = publicRoutes.includes(path);
 
-  const user = await getAuthUser();
-  const userId = user?.userId;
+  const authMethod = await getAuthMethod()
+  let userId
+  if (authMethod === 'tmdb') {
+    const user = await getTmdbAuthUser()
+    userId = user?.id
+  }
+  if (authMethod === 'regular') {
+    const user = await getAuthUser()
+    userId = user?.userId;
+  }
 
   if (isProtected && !userId) {
     return NextResponse.redirect(new URL("/login", req.nextUrl));

@@ -84,6 +84,14 @@ export interface Movie {
     }[];
   };
 }
+export interface UserSavedMovie {
+  _id: ObjectId;
+  movieId: number;
+  title: string;
+  posterPath: string | null;
+  releaseDate: string;
+  voteAverage: number;
+}
 
 export interface Review {
   id: string;

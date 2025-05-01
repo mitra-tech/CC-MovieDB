@@ -1,12 +1,17 @@
 "use client";
 
 import { useActionState } from "react";
-import { addToWatchlist } from "@/actions/watchlist";
+import { addToImdbWatchlist, addToWatchlist } from "@/actions/watchlist";
 import { toast } from "sonner";
 import { useEffect } from "react";
+import { getCookie } from "cookies-next";
+
+type AuthMethod = 'regular' | 'tmdb' | undefined;
 
 export function AddToWatchlist({ movieDetails }: { movieDetails: any }) {
-  const [state, action, isPending] = useActionState(addToWatchlist, null);
+  const authMethod = getCookie('auth-method') as AuthMethod;
+  const addToWatchListAction = authMethod === 'tmdb' ? addToImdbWatchlist : addToWatchlist
+  const [state, action, isPending] = useActionState(addToWatchListAction, null);
   const jsonMovie = JSON.stringify(movieDetails);
 
   useEffect(() => {

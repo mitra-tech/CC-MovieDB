@@ -20,8 +20,8 @@ const ReviewCard = ({ movieId }: { movieId: string }) => {
   };
 
   return (
-    <section className="mt-8">
-      <div className="w-full">
+    <section className="mt-8 ">
+      <div className="w-full ">
         <button
           onClick={loadReviews}
           disabled={loading}
@@ -31,12 +31,12 @@ const ReviewCard = ({ movieId }: { movieId: string }) => {
         </button>
       </div>
 
-      <div className="mt-4 space-y-6 max-h-[600px] overflow-y-auto pb-4 ">
+      <div className="mt-4 space-y-6 max-h-[600px] overflow-y-auto pb-4">
         {reviews.length > 0
           ? reviews.map((review) => (
               <article
                 key={review.id}
-                className="border-b pb-6 overflow-scroll h-screen w-48"
+                className="border-b pb-6 overflow-scroll h-screen w-48  "
               >
                 <header className="flex justify-between mb-2  bg-purple-500  rounded-xs">
                   <h3 className="font-medium text-white ">{review.author}</h3>
@@ -45,7 +45,7 @@ const ReviewCard = ({ movieId }: { movieId: string }) => {
                     {new Date(review.created_at).toLocaleDateString()}
                   </time>
                 </header>
-                <p className="text-gray-700 whitespace-pre-line text-justify text-xs">
+                <p className="text-gray-700 whitespace-pre-line text-justify text-xs ">
                   {review.content}
                 </p>
               </article>
@@ -53,7 +53,7 @@ const ReviewCard = ({ movieId }: { movieId: string }) => {
           : hasSearched &&
             !loading && (
               <div className="mx-auto my-4">
-                <p className="text-yellow-500">No reviews yet</p>
+                <p className="text-yellow-500 pl-2">No reviews yet</p>
               </div>
             )}
       </div>

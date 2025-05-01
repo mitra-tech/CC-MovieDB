@@ -70,12 +70,7 @@ password: 123456a@
 
 ---
 
-## 🧠 Thought Process & Assumptions
-
-🔐 1. Custom Authentication
-Two ways of authentication has been implemented a custom authentication system using email and password and an authentication via MovieDB API.
-
-💬 Assumption: The authentication logic would remain relatively simple in scope, making a custom solution more maintainable and tailored than using a heavy external library.
+🔐 Two ways of authentication has been implemented, a custom authentication system using email and password, and an authentication via MovieDB API.
 
 ### 💬 How MovieDB API authentican works?
 

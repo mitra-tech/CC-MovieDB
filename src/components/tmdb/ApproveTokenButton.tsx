@@ -19,7 +19,7 @@ export default function ApproveTokenButton({ token }: { token: string }) {
           className={`px-6 py-3 rounded-lg font-medium transition-all ${
             isApproved
               ? "bg-slate-500 cursor-not-allowed"
-              : "bg-slate-500 hover:bg-slate-700"
+              : "bg-slate-500 hover:bg-slate-600"
           } text-white shadow-md w-full`}
           disabled={isApproved}
         >
